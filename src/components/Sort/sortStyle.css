@@ -1,0 +1,41 @@
+.sortBy{
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    height: 47px;
+    margin: 10px;
+}
+
+.plusBtn{
+    width: 30px;
+    height: 30px;
+    margin: 20px 10px;
+}
+
+.sortItems{
+    margin: 30px;
+    justify-content: flex-end;
+}
+
+.sortFilter, .direction, .dateFilter, .sortItems{
+    display: flex;
+}
+
+.dateFilter-none, .direction-none{
+    display:none;
+}
+
+.pSort{
+    margin: 25px 10px;
+}
+
+.plusBtn:hover{
+    box-shadow: 0 0 15px 0 rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.sortBy:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}

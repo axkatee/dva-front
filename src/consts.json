@@ -1,0 +1,5 @@
+{
+  "tokenExpiration": 3000,
+  "refreshTokenExpiration": 2592000,
+  "apiUrl": "http://localhost:3000"
+}

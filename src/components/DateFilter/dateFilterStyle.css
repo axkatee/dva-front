@@ -1,0 +1,41 @@
+.filterBtn{
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 208px;
+    height: 45px;
+    font-size: 18px;
+    font-family: Roboto;
+    font-weight: 300;
+    margin: 0 25px;
+    cursor: pointer;
+}
+
+.deleteDateFilterBtn{
+    width: 23px;
+    height: 30px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.startDateopen, .endDate, .sortFilter{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.startDateclose{
+    display:none;
+}
+
+.pDate{
+    margin: 14px;
+}
+
+.deleteDateFilterBtn:hover{
+    box-shadow: 0 0 15px 0 rgba(255, 255, 255, 1);
+}
+
+.filterBtn:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}

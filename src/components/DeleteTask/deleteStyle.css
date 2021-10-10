@@ -1,0 +1,63 @@
+.windowdelopen{
+    width: 100vw;
+    top: 0;
+    height: 100%;
+    position: fixed;
+    display: block;
+    background: rgba(196, 196, 196, 0.9);
+    padding-top: 300px;
+}
+
+.deleteItems{
+    justify-content: center;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    background: #FFFFFF;
+    width: 590px;
+    margin: 0 auto;
+}
+
+.deleteTaskBtn{
+    background: rgba(197, 233, 255, 0.72);
+    border: 2px solid rgba(197, 233, 255, 0.72);
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 146px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.cancelTaskBtn{
+    background: #FFFFFF;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 146px;
+    height: 40px;
+}
+
+.cancelTaskBtn:hover, .deleteTaskBtn:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.bottomView{
+    display: flex;
+    padding: 20px;
+    box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.titleText{
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    text-align: left;
+}
+
+.windowdelclose{
+    height: 0;
+    display: none;
+}
+
+.pDelete{
+    margin: 25px 0 70px 25px;
+}

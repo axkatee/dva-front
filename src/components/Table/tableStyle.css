@@ -1,0 +1,37 @@
+table{
+    background: white;
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+    width: 95%;
+    margin: 30px auto;
+}
+
+th{
+    background-color: #c2c2c2;
+    height: 60px;
+    font-family: Roboto;
+    font-weight: 300;
+    border-bottom: 1px solid black;
+}
+
+td{
+    border: 1px solid black;
+    border-bottom: none;
+    border-top: none;
+    padding: 15px;
+}
+
+.editBtn, .deleteBtn{
+    width: 16px;
+    height: 16px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.controlBtn{
+    width: 100px;
+}
+
+.deleteBtn:hover, .editBtn:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}

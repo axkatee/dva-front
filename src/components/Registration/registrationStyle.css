@@ -1,0 +1,86 @@
+.registrationView{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hospitalImg{
+    margin: 200px 0 20% 15%;
+}
+
+.signBlock{
+    background-color: white;
+    width: 350px;
+    height: 450px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 37px 50px 42px;
+    justify-content: center;
+    margin: 80px 20% 0 80px;
+}
+
+.titleSignInText{
+    font-weight: 300;
+    font-size: 33px;
+    line-height: 42px;
+    text-align: center;
+}
+
+.loginInputSignIn, .passwordInputSignIn{
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    padding: 15px;
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+}
+
+.signInBtn{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #FFFFFF;
+    width: 149px;
+    height: 40px;
+    margin-top: 40px;
+    margin-right: 0;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.registrationBtn{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #FFFFFF;
+    height: 40px;
+    width: 150px;
+    margin: 15px 200px -5px;
+    padding: 10px;
+    font-family: Roboto;
+    cursor: pointer;
+}
+
+.signInP{
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.registration, .autorization{
+    text-align: right;
+    cursor: pointer;
+}
+
+.registrationBtn:hover, .signInBtn:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pLogin-none, .pPassword-none{
+    display: none
+}
+
+.pLogin, .pPassword{
+    color: red;
+}
