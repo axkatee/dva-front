@@ -1,19 +1,19 @@
 import React from 'react'
 import './App.css';
 import Registration from "./components/Registration/Registration";
-import Body from "./components/Body/Body";
+import HomePage from "./components/HomePage/HomePage";
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import EditTask from "./components/EditTask/EditTask";
 import DeleteTask from "./components/DeleteTask/DeleteTask";
-import Cookies from 'js-cookie'
 import { createBrowserHistory } from 'history'
 import { obtainNewTokens } from './components/api'
 
 const history = createBrowserHistory();
 
-function App(props) {
+function App() {
   return (
       <BrowserRouter history={history}>
+          <HomePage></HomePage>
           <div className="App">
               <Switch>
                   <Route
@@ -28,7 +28,7 @@ function App(props) {
                     }
                   />
                   <LoginRoute path = "/api/signup"><Registration /></LoginRoute>
-                  <ProtectedRoute path = "/home"><Body /></ProtectedRoute>
+                  <ProtectedRoute path = "/home"><HomePage /></ProtectedRoute>
                   <ProtectedRoute path = "/home/edit"><EditTask /></ProtectedRoute>
                   <ProtectedRoute path = "/home/delete"><DeleteTask /></ProtectedRoute>
               </Switch>
@@ -64,6 +64,7 @@ function ConditionalRoute({ children, redirect, mustBeLoggedIn, ...props }) {
 
     if(appToken === undefined && refreshToken !== undefined) requestNewToken()
     else setAuthentificated(appToken !== undefined && refreshToken !== undefined)
+      // eslint-disable-next-line
   }, [])
 
   return (
@@ -81,7 +82,7 @@ function ConditionalRoute({ children, redirect, mustBeLoggedIn, ...props }) {
                 }}
               />
             )
-          : <div></div>
+          : <div />
       }
     />
   )

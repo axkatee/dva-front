@@ -30,8 +30,9 @@ function DateFilter(props) {
     }
 
     const handleRemove = () => {
-      delete startDateRef.current.value
-      delete endDateRef.current.value
+      startDateRef.current.value = null;
+      endDateRef.current.value = null
+
       props.setFilterFunc(() => () => true)
       props.onModalClose()
     }

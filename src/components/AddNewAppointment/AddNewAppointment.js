@@ -1,32 +1,40 @@
 import React, {useState} from "react";
-import './addNewTaskStyle.css';
+import './addNewAppointmentStyle.css';
 
-function AddNewTask(props) {
-    const defaultValues = {
-        nameValue: '',
-        doctorValue: 'Иванов И.И',
-        dateValue: '',
-        complaintsValue: ''
-    }
+const defaultValues = {
+    nameValue: '',
+    doctorValue: 'Иванов И.И',
+    dateValue: '',
+    complaintsValue: ''
+}
+function AddNewAppointment(props) {
+
     const [input, setInput] = useState(defaultValues);
     const [wClass, setWClass] = useState('warnInput-none');
     const [adding, setAdding] = React.useState(false)
 
+    const options = [
+         'Иванов И.И' ,
+         'Петров П.П',
+         'Алексеев А.А',
+         'Романов Р.Р'
+    ]
+
     const addItem = (input, setWClass) => {
-        const nameValue = input.nameValue;
-        const doctorValue = input.doctorValue;
+        const name = input.nameValue;
+        const doctor = input.doctorValue;
         const dateValue = input.dateValue;
         const complaintsValue = input.complaintsValue;
 
-        if(!nameValue || !doctorValue || !dateValue || !complaintsValue){
+        if(!name || !doctor || !dateValue || !complaintsValue){
             setWClass('warnInput');
             return false;
         }
         setWClass('warnInput-none');
 
         const addNewEntry = {
-            name: nameValue,
-            doctor: doctorValue,
+            name,
+            doctor,
             date: dateValue,
             complaint: complaintsValue
         }
@@ -58,11 +66,10 @@ function AddNewTask(props) {
                         value = {input.doctorValue}
                         onChange={(e) =>
                             {setInput({...input, doctorValue: e.target.value})}}
-                        className="doctors">
-                        <option>Иванов И.И</option>
-                        <option>Петров П.П</option>
-                        <option>Алексеев А.А</option>
-                        <option>Романов Р.Р</option>
+                        className="doctors" >
+                        {options.map(item =>
+                        <option>{item}</option>
+                        )}
                     </select>
                 </div>
                 <div className = "item">
@@ -92,4 +99,4 @@ function AddNewTask(props) {
     );
 }
 
-export default AddNewTask;
+export default AddNewAppointment;

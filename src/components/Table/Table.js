@@ -7,7 +7,6 @@ import DeleteTask from "../DeleteTask/DeleteTask";
 
 function Table(props) {
     const [editValues, setEditValues] = React.useState({})
-
     const [modal, setModal] = useState({
         modalEdit: false,
         modalDelete: false,
@@ -15,36 +14,10 @@ function Table(props) {
         editPopupIssuer: null
     })
 
-    let tableMap = props.items?.map(function(elem, index){
-        const handleEdit = () => {
-          setModal({ modalEdit: true })
-          setEditValues(elem)
-        }
-
-        return(
-            <tr key = {index}
-                id="row">
-                <td id="name">{elem.name}</td>
-                <td id="doctor">{elem.doctor}</td>
-                <td id="date">{elem.date}</td>
-                <td id="complaints">{elem.complaint}</td>
-                <td className="controlBtn">
-                    <img
-                        src = {deleteBtn}
-                        onClick={() => setModal({modalDelete: true, deletePopupIssuer:elem})}
-                        alt = ""
-                        className = "deleteBtn"
-                    />
-                    <img
-                        src = {editBtn}
-                        onClick={handleEdit}
-                        alt = ""
-                        className = "editBtn"
-                    />
-                </td>
-            </tr>
-        )
-    })
+    const handleEdit = elem => () => {
+        setModal({ modalEdit: true })
+        setEditValues(elem)
+    }
 
     return (
         <div className = "tableItem">
@@ -59,7 +32,28 @@ function Table(props) {
                 </tr>
                 </thead>
                 <tbody>
-                    {tableMap}
+                {props.items?.map((elem, index) => (
+                    <tr key = {index}>
+                        <td>{elem.name}</td>
+                        <td>{elem.doctor}</td>
+                        <td>{elem.date}</td>
+                        <td>{elem.complaint}</td>
+                        <td className="controlBtn">
+                            <img
+                                src = {deleteBtn}
+                                onClick={() => setModal({modalDelete: true, deletePopupIssuer:elem})}
+                                alt = ""
+                                className = "deleteBtn"
+                            />
+                            <img
+                                src = {editBtn}
+                                onClick={handleEdit(elem)}
+                                alt = ""
+                                className = "editBtn"
+                            />
+                        </td>
+                    </tr>
+                ))}
                 </tbody>
             </table>
             <EditTask

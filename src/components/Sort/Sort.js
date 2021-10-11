@@ -16,7 +16,6 @@ function Sort(props) {
           if(dateInput.direction === 'desc') props.setSortFunc(() => (a, b) => b.name.localeCompare(a.name))
           else props.setSortFunc(() => (a, b) => a.name.localeCompare(b.name))
           break
-
         case 'doctor':
           if(dateInput.direction === 'desc') props.setSortFunc(() => (a, b) => b.doctor.localeCompare(a.doctor))
           else props.setSortFunc(() => (a, b) => a.doctor.localeCompare(b.doctor))
@@ -31,6 +30,7 @@ function Sort(props) {
           props.setSortFunc(() => (a, b) => a)
           break
       }
+        // eslint-disable-next-line
     }, [dateInput])
 
     return (
@@ -56,7 +56,6 @@ function Sort(props) {
                         onChange={(e) =>
                             {setDateInput({...dateInput, direction: e.target.value})}}
                         className="sortBy">
-                        <option> </option>
                         <option value='asc'>По возрастанию</option>
                         <option value='desc'>По убыванию</option>
                     </select>

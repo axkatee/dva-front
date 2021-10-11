@@ -7,8 +7,16 @@ const EditTask = (props) => {
     const [values, setValues] = React.useState({})
     const { _id, __v, ...formValues } = props.values
 
+    const options = [
+        'Иванов И.И' ,
+        'Петров П.П',
+        'Алексеев А.А',
+        'Романов Р.Р'
+    ]
+
     React.useEffect(() => {
       setValues(formValues)
+        // eslint-disable-next-line
     }, [props.values])
 
     const handleChange = e => {
@@ -19,8 +27,7 @@ const EditTask = (props) => {
 
     const handleEditItem = () => {
         const warnInput = document.getElementById('warnEditInput');
-
-        if(Object.values(values).some(value => !value.length)){
+        if(Object.values(values).some(value => !value.trim.length)){
             warnInput.className = 'warnEditInput';
             return false;
         }
@@ -43,13 +50,11 @@ const EditTask = (props) => {
                 </div>
                 <div>
                     <p
-                        id = 'warnEditInput'
                         className='warnEditInput warnEditInput-none'>
                         Заполните все поля!
                     </p>
                     <p>Имя:</p>
                     <input
-                        id = 'nameEditValue'
                         className='input'
                         type = 'text'
                         value={values.name}
@@ -57,19 +62,16 @@ const EditTask = (props) => {
                         onChange={handleChange} />
                     <p>Врач</p>
                     <select
-                        id = 'doctorEditValue'
                         className="doctor"
                         name='doctor'
                         value={values.doctor}
                         onChange={handleChange}>
-                        <option>Иванов И.И</option>
-                        <option>Петров П.П</option>
-                        <option>Алексеев А.А</option>
-                        <option>Романов Р.Р</option>
+                        {options.map(item =>
+                            <option>{item}</option>
+                        )}
                     </select>
                     <p>Дата:</p>
                     <input
-                        id = 'dateEditValue'
                         className='input'
                         type = 'date'
                         name='date'
@@ -77,7 +79,6 @@ const EditTask = (props) => {
                         onChange={handleChange}/>
                     <p>Жалобы: </p>
                     <textarea
-                        id = 'complaintsEditValue'
                         className="multilineBlock"
                         cols="65"
                         rows="4"

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router'
+import { Link, Redirect, Route, Switch } from "react-router-dom";
 import hospital from "../../images/hospital.png"
 import './registrationStyle.css';
 import Header from "../Header/Header";
 import { OnSignInValidator } from "./validators/onSignInValidator"
 import { OnSignUpValidator } from "./validators/onSignUpValidator"
-import { Link, Redirect, Route, Switch } from "react-router-dom";
-import { signUp } from '../api'
-import { signIn } from '../api'
-import { useHistory } from 'react-router'
+import { signUp, signIn } from '../api'
 
 function Registration() {
     const element =

@@ -18,6 +18,8 @@ td{
     border: 1px solid black;
     border-bottom: none;
     border-top: none;
+    max-width: 200px;
+    word-wrap: break-word;
     padding: 15px;
 }
 

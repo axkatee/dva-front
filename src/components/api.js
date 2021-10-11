@@ -1,5 +1,4 @@
 import { apiUrl } from '../consts.json';
-import { useHistory } from 'react-router';
 
 export async function signUp(email, password) {
   return await request('/api/signup/registration', { email, password })
