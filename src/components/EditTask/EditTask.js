@@ -6,6 +6,7 @@ import { editItem } from '../api'
 const EditTask = (props) => {
     const [values, setValues] = React.useState({})
     const { _id, __v, ...formValues } = props.values
+    const warnInput = document.getElementById('warnEditInput');
 
     const options = [
         'Иванов И.И' ,
@@ -20,18 +21,20 @@ const EditTask = (props) => {
     }, [props.values])
 
     const handleChange = e => {
-      setValues({ ...values, [e.target.name]: e.target.value })
+        setValues({ ...values, [e.target.name]: e.target.value })
     }
 
-    const handleClosePopup = () => props.onModalClose()
+    const handleClosePopup = () => {
+        props.onModalClose();
+    }
 
     const handleEditItem = () => {
-        const warnInput = document.getElementById('warnEditInput');
-        if(Object.values(values).some(value => !value.trim.length)){
+        if(!values.name.trim() || !values.date || !values.complaint.trim()){
             warnInput.className = 'warnEditInput';
             return false;
+        }else{
+            warnInput.className = 'warnEditInput-none';
         }
-        warnInput.className = 'warnEditInput-none';
 
         const noChanges = deepEqual(values, formValues)
         if(noChanges) return handleClosePopup()
@@ -50,38 +53,39 @@ const EditTask = (props) => {
                 </div>
                 <div>
                     <p
+                        id = "warnEditInput"
                         className='warnEditInput warnEditInput-none'>
                         Заполните все поля!
                     </p>
-                    <p>Имя:</p>
+                    <p className='p'>Имя:</p>
                     <input
                         className='input'
                         type = 'text'
                         value={values.name}
                         name='name'
                         onChange={handleChange} />
-                    <p>Врач</p>
+                    <p className='p'>Врач</p>
                     <select
                         className="doctor"
                         name='doctor'
                         value={values.doctor}
                         onChange={handleChange}>
-                        {options.map(item =>
-                            <option>{item}</option>
+                        {options.map((item, index) =>
+                            <option key={index}>{item}</option>
                         )}
                     </select>
-                    <p>Дата:</p>
+                    <p className='p'>Дата:</p>
                     <input
                         className='input'
                         type = 'date'
                         name='date'
                         value={values.date}
                         onChange={handleChange}/>
-                    <p>Жалобы: </p>
+                    <p className='p'>Жалобы: </p>
                     <textarea
                         className="multilineBlock"
-                        cols="65"
-                        rows="4"
+                        cols="50"
+                        rows="3"
                         name='complaint'
                         value={values.complaint}
                         onChange={handleChange}/>

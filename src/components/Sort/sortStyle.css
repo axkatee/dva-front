@@ -3,7 +3,7 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     border-radius: 4px;
-    width: 100%;
+    width: 200px;
     height: 47px;
     margin: 10px;
 }
@@ -29,6 +29,7 @@
 
 .pSort{
     margin: 25px 10px;
+    white-space: nowrap;
 }
 
 .plusBtn:hover{

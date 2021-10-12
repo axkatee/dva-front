@@ -1,15 +1,15 @@
 import { apiUrl } from '../consts.json';
 
 export async function signUp(email, password) {
-  return await request('/api/signup/registration', { email, password })
+  return await request('/api/registration', { email, password })
 }
 
 export async function signIn(email, password) {
-  return await request('/api/signup/login', { email, password })
+  return await request('/api/login', { email, password })
 }
 
 export async function obtainNewTokens(refreshToken) {
-  const { token, refToken } = await request('/api/signup/refreshTokens', { refToken: refreshToken })
+  const { token, refToken } = await request('/api/refreshTokens', { refToken: refreshToken })
   localStorage.setItem('auth_data', JSON.stringify({
     access_token: token,
     refresh_token: refToken
@@ -51,7 +51,7 @@ async function apiRequest(url, body, method) {
     ...(method !== 'GET' && { body: JSON.stringify(body) }),
     headers: {
       ...(method !== 'GET' && {'Content-Type': 'application/json'}),
-      ...(url.indexOf('/api/signup/') !== 0 && { Authorization: JSON.parse(localStorage.getItem('auth_data'))?.access_token })
+      ...(url.indexOf('/api/') !== 0 && { Authorization: JSON.parse(localStorage.getItem('auth_data'))?.access_token })
     }
   })
 }

@@ -25,7 +25,7 @@ td{
 
 .editBtn, .deleteBtn{
     width: 16px;
-    height: 16px;
+    height: 18px;
     margin: 15px;
     cursor: pointer;
 }

@@ -6,6 +6,7 @@ function DateFilter(props) {
     const startDateRef = React.useRef()
     const endDateRef = React.useRef()
 
+
     const sortDateItem = () => {
         const startDate = startDateRef.current;
         const endDate = endDateRef.current;
@@ -27,14 +28,15 @@ function DateFilter(props) {
           else if (startDateTime) props.setFilterFunc(() => ({ date }) => new Date(date).getTime() >= startDateTime)
           else if (endDateTime) props.setFilterFunc(() => ({ date }) => new Date(date).getTime() <= endDateTime)
         }
+
     }
 
     const handleRemove = () => {
-      startDateRef.current.value = null;
-      endDateRef.current.value = null
+        startDateRef.current.value = null;
+        endDateRef.current.value = null
 
-      props.setFilterFunc(() => () => true)
-      props.onModalClose()
+        props.setFilterFunc(() => () => true)
+        props.onModalClose()
     }
 
     return (

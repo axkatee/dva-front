@@ -13,7 +13,6 @@ const history = createBrowserHistory();
 function App() {
   return (
       <BrowserRouter history={history}>
-          <HomePage></HomePage>
           <div className="App">
               <Switch>
                   <Route
@@ -27,7 +26,7 @@ function App() {
                       />
                     }
                   />
-                  <LoginRoute path = "/api/signup"><Registration /></LoginRoute>
+                  <LoginRoute path = "/api"><Registration /></LoginRoute>
                   <ProtectedRoute path = "/home"><HomePage /></ProtectedRoute>
                   <ProtectedRoute path = "/home/edit"><EditTask /></ProtectedRoute>
                   <ProtectedRoute path = "/home/delete"><DeleteTask /></ProtectedRoute>
@@ -39,7 +38,7 @@ function App() {
 
 function ProtectedRoute(props) {
   return (
-    <ConditionalRoute redirect='/api/signup/login' mustBeLoggedIn={true} {...props} />
+    <ConditionalRoute redirect='/api/login' mustBeLoggedIn={true} {...props} />
   )
 }
 

@@ -8,6 +8,7 @@ function Sort(props) {
         modalDate: false,
     })
     const [dateInput, setDateInput] = useState({direction: '', sort: ''});
+    const [filterClass, setFilterClass] = useState('dateFilter');
 
     React.useEffect(() => {
       if(!dateInput.sort) { return props.setSortFunc((a, b) => a) }
@@ -33,11 +34,16 @@ function Sort(props) {
         // eslint-disable-next-line
     }, [dateInput])
 
+    const onAddDateFilter = () => {
+        setFilterClass('dateFilter-none');
+        setModal({modalDate: true})
+    }
+
     return (
         <div style = {{display: 'flex', flexDirection: 'column'}}>
             <div className = "sortItems">
                 <div className='sortFilter'>
-                    <p className='pSort'>Сортировать по: </p>
+                    <p className='pSort'>Сортировать по:</p>
                     <select
                         value = {dateInput.sort}
                         onChange={(e) =>
@@ -52,7 +58,7 @@ function Sort(props) {
                 <div className='direction'>
                     <p className='pSort'>Направление: </p>
                     <select
-                        value = {dateInput.direction}
+                        value={dateInput.direction}
                         onChange={(e) =>
                             {setDateInput({...dateInput, direction: e.target.value})}}
                         className="sortBy">
@@ -60,10 +66,10 @@ function Sort(props) {
                         <option value='desc'>По убыванию</option>
                     </select>
                 </div>
-                <div className='dateFilter'>
+                <div className={filterClass}>
                     <p className='pSort'>Добавить фильтр по дате: </p>
                     <img
-                        onClick={() => setModal({modalDate: true})}
+                        onClick={onAddDateFilter}
                         src = {plus}
                         alt = ''
                         className='plusBtn'

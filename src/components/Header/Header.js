@@ -8,7 +8,7 @@ function Header(props) {
 
     const exitFunc = () => {
       localStorage.clear();
-      history.push('/api/signup/registration')
+      history.push('/api/registration')
     }
 
     let btnElem =
